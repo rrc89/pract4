@@ -1,0 +1,280 @@
+/*estilo general de la pagina*/
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/*panel navegacion*/
+nav {
+    background-color: #5aae01;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #284d01;
+}
+
+/*el contenedor principal de la pagina*/
+main {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+}
+
+/*tablas*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+/*imagenes*/
+img {
+    border-radius: 5px;
+    display: block;
+    margin: 10px 0;
+}
+
+/*formularios*/
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+}
+
+input, select, button {
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+.imagen-pequena { /*con el punto indico que es una clase*/
+    width: 80px;
+    height: auto; /*para mantener proporcion*/
+    margin: auto; /*esto para centrarla*/
+}
+
+.imagen-mediana { /*con el punto indico que es una clase*/
+    width: 175px;
+    height: auto; /*para mantener proporcion*/
+    margin: 20px; /*esto para centrarla*/
+}
+
+.oferta-titulo {
+    background-color: #abff51; /*pongo un color medio chillon para indicar que es una oferta*/
+    color: #2a5001;
+    padding: 10px 20px; /*esto para dejar "acolchonamiento", espacio alrededor del texto*/
+    border-radius: 5px; /*redondear bordes*/
+    display: inline-block;
+    transform: rotate(-2deg); /*al hacer un poco de 'tilt' parece una pegatina*/
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2); /*esto es para sombra, para que parezca pegatina*/
+}
+
+.titulos-color {
+    color: #284d01;
+}
+
+.subtitulos-color {
+    color: #376308;
+}
+
+/*PRODUCTOS*/
+
+/*primero defino el 'grid', para que las tarjetas queden colocadas*/
+.grid-productos {
+    display: flex;
+    flex-wrap: wrap;    /*el wrap lo uso para que en el caso de qeu no quepan, salten a la siguiente linea*/
+    gap: 20px;          /*dejo un hueco entre cada tarjeta*/
+    justify-content: center; /*las tarjetas qeudan centradas en la pantalla, da igual del numero que aparezca por fila*/
+}
+
+/*aqui disenyo las tarjetas de los productos*/
+.tarjeta {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    width: 200px;       /*fijo el ancho para que sean todas iguales*/
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /*esto como en el boton de oferta, es para dar sombra y que parezca qeu tiene relieve*/
+    transition: 0.3s;   /*esto 'suaviza' el efecto al pasar el raton, para qeu no sea tan brusco*/
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px); /*cuando paso por encima, la tarjeta se eleva un poco*/
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /*sombra otra vez pero un poco mas fuerte cuando se 'eleva' la tarjeta*/
+}
+
+/*con esto ajusto las imagenes dentro de las tarjetas*/
+/*cada imagen tiene un tamano diferente y quiero qeu entre dentro de la tarjeta sin deformarse*/
+.tarjeta img {
+    width: 100%;        /*indico que quiero que ocupe todo el ancho de la tarjeta*/
+    height: 150px;
+    object-fit: cover;  /*esto es con lo que indico qeu no se deforme*/
+    border-radius: 5px;
+}
+
+.precio {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: rgb(66, 108, 18);;
+    margin: 10px 0;
+}
+
+.boton-comprar {
+    background-color: #74bd26; /*color del boton*/
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer; /*esto es para qeu la flecha se cambie a la mano cuando me pongo encima*/
+}
+
+.boton-comprar:hover {
+    background-color: #609c20; /*cuando me coloco encima del boton, cambia de color*/
+}
+
+/*CARRITO*/
+
+/*contenedor del carrito*/
+.carrito-contenedor {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/*diseno y estilo de la tabla del carrito*/
+.tabla-carrito {
+    width: 100%;
+    border-collapse: collapse; /*quita espacio entre celdas, cada una se maneja de forma individual y sino quedaria
+    un hueco entre dos casillas que dejaria la tabla menos limpia*/
+    margin-bottom: 20px;
+    background: white;
+}
+
+.tabla-carrito th {
+    background-color: #f8f9fa;
+    color: #162a01;
+    padding: 15px; /*dejo un poco de margen*/
+    border-bottom: 2px solid #468502; /*linea verde debajo cabecera para separar cabecera del resto de la tabla*/
+    text-align: left;
+}
+
+/*indico que solo para el footer, para que quede dsitinguido de lo demas*/
+.tabla-carrito tfoot td {
+    border-bottom: 1px solid #162a01; /*linea oscura al final de la tabla, solo en el footer, sino me deja una clarita como entre producos*/
+    border-top: 1.6px solid #468502;    /*linea para separar productos del total*/
+}
+
+/*el resto de la tabla sigue este formato*/
+.tabla-carrito td {
+    padding: 15px;
+    border-bottom: 1px solid #eee; /*esta es la linea para separar prodcutos, casi ni se ve pero se aprecia*/
+    vertical-align: middle;
+}
+
+
+/*quiero que la imagen del producto en la tabla sea muy pequena*/
+.img-mini {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    display: inline-block; /*esto lo utilizo para que la imagen quede alineada con el texto*/
+    vertical-align: middle; /*para qeu quede en la misma linea qeu el texto*/
+    margin-right: 10px;
+}
+
+/*la fila del total en la parte de abajo de la tabla*/
+.fila-total {
+    background-color: #f1f1f1;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/*botones de acciones al final de la tabla*/
+.acciones-carrito {
+    display: flex; /*esto lo qeu hace es que se vayan colocando uno detras de otro,
+    el primero a la izda, y se van desplegando a su dcha*/
+    justify-content: space-between; /*una vez desplegados, dejo algo de espacio entre unos y otros*/
+    align-items: center;
+}
+
+/*este es el boton para eliminar productos en la tabla*/
+.btn-borrar {
+    background: #609c20;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/*el primario tiene fondo para destacar mas y el secundario tiene fondo blanco pero las letras a color*/
+.btn-primario {
+    background-color: #74bd26;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: bold;
+}
+.btn-primario:hover {
+    background-color: #609c20;
+}
+
+.btn-secundario {
+    color: #74bd26;
+    text-decoration: none;
+    font-weight: bold;
+}
+.btn-secundario:hover {
+    color: #609c20;
+}
+
+/*CONTACTO*/
+
+.boton-formulario {
+    background-color: #74bd26; /*color del boton*/
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer; /*esto es para qeu la flecha se cambie a la mano cuando me pongo encima*/
+}
+
+.boton-formulario:hover {
+    background-color: #609c20; /*cuando me coloco encima del boton, cambia de color*/
+}
+
+.boton-correo {
+    color: #74bd26;
+    text-decoration: none;
+    font-weight: bold;
+}
+.boton-correo:hover {
+    color: #609c20;
+}

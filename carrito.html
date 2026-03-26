@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tu Carrito - SuperMercado</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <nav id="inicio-carrito">
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="carrito.html">Mi Carrito</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+<main class="carrito-contenedor"> <!--tamano max de la pagina de la tabla del carrito-->
+    <h2 class="titulos-color">Tu Cesta de la Compra</h2>
+    
+    <table class="tabla-carrito"> <!--defino el diseno de la tabla en el css-->
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Unid.</th>
+                <th>Subtotal</th>
+                <th>Eliminar</th> <!--esto ahora sin funcionalidad pero serviria para eliminar productos del carrito-->
+            </tr>
+        </thead>
+        <tbody>
+            <!--los productos de la tabla ahora estan hardcodeados-->
+            <tr>
+                <td>
+                    <img src="https://lechepascual.es/wp-content/uploads/2018/05/3.png" alt="Leche" class="img-mini"> 
+                    Leche Semidesnatada
+                </td>
+                <td>2</td>
+                <td>1.20€</td>
+                <td>2.40€</td>
+                <td><button class="btn-borrar">X</button></td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="https://panamarbakery.com/public/Image/2021/1/161192842912608normal_Galeria.png" alt="Pan" class="img-mini"> 
+                    Barra de Pan
+                </td>
+                <td>1</td>
+                <td>0.85€</td>
+                <td>0.85€</td>
+                <td><button class="btn-borrar">X</button></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <!--la fila de total es footer, es otro formato para diferenciarla del resto de la tabla y porque no necesita info en todas las columnas-->
+            <tr class="fila-total">
+                <!--con el colspan indico las columnas que ocupa cada campo-->
+                <td colspan="3">TOTAL A PAGAR</td>
+                <td colspan="2">3.25€</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <!--las clases de los botones estan definidas en el css para indicar el estilo-->
+    <div class="acciones-carrito">
+        <a href="productos.html" class="btn-secundario">Seguir Comprando</a>
+        <!--el boton de seguir comprando me lleva a la pagina de productos-->
+        <button class="btn-primario">Finalizar Pedido</button>
+    </div>
+</main>
+
+</body>
+</html>
