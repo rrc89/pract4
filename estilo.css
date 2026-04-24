@@ -278,3 +278,63 @@ input, select, button {
 .boton-correo:hover {
     color: #609c20;
 }
+
+
+/* Modal del formulario */
+.modal-oculto {
+    display: none;
+  }
+  
+  #modal-pedido {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  #modal-pedido.modal-oculto {
+    display: none;
+  }
+  
+  .modal-contenido {
+    background: white;
+    padding: 2em;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .modal-contenido label {
+    display: block;
+    margin-bottom: 1em;
+    font-weight: bold;
+  }
+  
+  .modal-contenido input,
+  .modal-contenido select,
+  .modal-contenido textarea {
+    display: block;
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.3em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+    font-weight: normal;
+  }
+  
+  .acciones-modal {
+    display: flex;
+    gap: 1em;
+    justify-content: flex-end;
+    margin-top: 1em;
+  }
