@@ -1,6 +1,6 @@
 const API_URL = 'http://localhost:8081/carritos';
 
-// Obtiene el id del carrito guardado, o crea uno nuevo si no existe
+// con esto se obtiene en id del carrito guardado o se crea uno nuevo si no existe
 async function obtenerOCrearCarrito() {
   let id = localStorage.getItem('idCarrito');
   if (id) return id;
@@ -16,7 +16,7 @@ async function obtenerOCrearCarrito() {
   return id;
 }
 
-// ===== PRODUCTOS.HTML: añadir producto =====
+// productos.html: para anyadir producto
 async function añadirAlCarrito(idArticulo, descripcion, precio) {
   try {
     const idCarrito = await obtenerOCrearCarrito();
@@ -34,12 +34,12 @@ async function añadirAlCarrito(idArticulo, descripcion, precio) {
     if (res.ok) alert(descripcion + ' añadido al carrito');
     else alert('Error al añadir el producto');
   } catch (e) {
-    alert('No se puede conectar con el servidor (¿está arrancado?)');
+    alert('Error al conectar con el servidor');
     console.error(e);
   }
 }
 
-// ===== CARRITO.HTML: mostrar contenido =====
+// carrito.html: mostrar el contenido del carrito
 async function cargarCarrito() {
   try {
     const idCarrito = localStorage.getItem('idCarrito');
@@ -79,8 +79,8 @@ async function cargarCarrito() {
   }
 }
 
-// ===== Eliminar una línea =====
-async function eliminarLinea(idArticulo) {
+// eliminar una linea del carrito
+async function eliminarLinea(idArticulo) { //la elimino por id del articulo
   try {
     const idCarrito = localStorage.getItem('idCarrito');
     const res = await fetch(`${API_URL}/${idCarrito}/lineas/${idArticulo}`, { method: 'DELETE' });
@@ -90,18 +90,18 @@ async function eliminarLinea(idArticulo) {
   }
 }
 
-// Carga automática en carrito.html
+// carga automática en carrito.html, se va actualizando solo a medida que anyado/elimino productos
 if (window.location.pathname.endsWith('carrito.html')) {
   document.addEventListener('DOMContentLoaded', cargarCarrito);
 }
 
 
-// ===== FORMULARIO DE PEDIDO =====
+// formulario de pedido - confirmacion/finalizar compra
 function abrirFormularioPedido() {
     const idCarrito = localStorage.getItem('idCarrito');
     const tbody = document.querySelector('.tabla-carrito tbody');
   
-    if (!idCarrito || tbody.children.length === 0) {
+    if (!idCarrito || tbody.children.length === 0) { //no me permite realizar la compra si el carrito esta vacio
       alert('Tu carrito está vacío. Añade productos antes de finalizar.');
       return;
     }
@@ -112,7 +112,7 @@ function abrirFormularioPedido() {
     document.getElementById('modal-pedido').classList.add('modal-oculto');
   }
   
-  // Mostrar/ocultar el campo de tarjeta según el método de pago
+  // muestro u oculto el campo de tarjeta en funcion del metodo de pago - solo lo enseno cuando selecciono pago con tarjeta
   document.addEventListener('DOMContentLoaded', () => {
     const selectPago = document.querySelector('select[name="pago"]');
     if (selectPago) {
@@ -137,17 +137,17 @@ function abrirFormularioPedido() {
     const nombre = datos.get('nombre');
   
     try {
-      // Borrar el carrito del backend
+      // borrar el carrito del backend, si el pedido se ha confirmado el carrito ya no lo quiero
       const idCarrito = localStorage.getItem('idCarrito');
       if (idCarrito) {
         await fetch(`${API_URL}/${idCarrito}`, { method: 'DELETE' });
         localStorage.removeItem('idCarrito');
       }
   
-      alert(`¡Gracias ${nombre}! Tu pedido ha sido confirmado y se entregará en el horario seleccionado.`);
+      alert(`¡Gracias ${nombre}! Tu pedido ha sido confirmado y se entregará en el horario seleccionado.`); //nombre es el nombre que ha metido el usuario en el formulario
       cerrarFormularioPedido();
       form.reset();
-      cargarCarrito(); // refresca la tabla (vacía)
+      cargarCarrito(); // refresca la tabla (la vacía)
     } catch (e) {
       alert('Error al procesar el pedido');
       console.error(e);

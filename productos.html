@@ -1,56 +1,3 @@
-<!--
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Productos - SuperMercado</title>
-    <link rel="stylesheet" href="estilo.css">
-</head>
-<body>
-
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="productos.html">Productos</a>
-        <a href="carrito.html">Mi Carrito</a>
-        <a href="contacto.html">Contacto</a>
-    </nav>
-
-<main>
-    <h2 class="titulos-color">Nuestros Productos</h2>
-    
-    <div class="grid-productos">
-        
-        <div class="tarjeta"> <!--defino la clase tarjeta que son los recuadros para cada producto--><!--
-            <img src="https://lechepascual.es/wp-content/uploads/2018/05/3.png" alt="Leche Semidesnatada">
-            <h3 class="subtitulos-color">Leche Semidesnatada</h3>
-            <p>Categoría: Lácteos</p>
-            <span class="precio">1.20€</span> <!--esta clase y la siguiente quedan definidas en el css y se usan para todos los productos--><!--
-            <button class="boton-comprar">Añadir</button>
-        </div>
-
-        <div class="tarjeta">
-            <img src="https://panamarbakery.com/public/Image/2021/1/161192842912608normal_Galeria.png" alt="Barra de Pan">
-            <h3 class="subtitulos-color">Barra de Pan</h3>
-            <p>Categoría: Panadería</p>
-            <span class="precio">0.85€</span>
-            <button class="boton-comprar">Añadir</button>
-        </div>
-
-        <div class="tarjeta">
-            <img src="https://png.pngtree.com/png-vector/20240822/ourmid/pngtree-freshness-packed-in-every-egg-carton-on-transparent-background-png-image_13591613.png" alt="Huevos">
-            <h3 class="subtitulos-color">Docena de Huevos</h3>
-            <p>Categoría: Granja</p>
-            <span class="precio">2.50€</span>
-            <button class="boton-comprar">Añadir</button>
-        </div>
-
-    </div>
-</main>
-
-</body>
-</html>
--->
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -69,11 +16,11 @@
     <h2 class="titulos-color">Nuestros Productos</h2>
     <div class="grid-productos">
 
-      <div class="tarjeta">
+      <div class="tarjeta"> <!--defino la clase tarjeta que son los recuadros para cada producto-->
         <img src="https://lechepascual.es/wp-content/uploads/2018/05/3.png" alt="Leche Semidesnatada">
         <h3 class="subtitulos-color">Leche Semidesnatada</h3>
         <p>Categoría: Lácteos</p>
-        <span class="precio">1.20€</span>
+        <span class="precio">1.20€</span><!--esta clase y la siguiente quedan definidas en el css y se usan para todos los productos-->
         <button class="boton-comprar" onclick="añadirAlCarrito(1, 'Leche Semidesnatada', 1.20)">Añadir</button>
       </div>
 
